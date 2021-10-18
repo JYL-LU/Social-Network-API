@@ -21,9 +21,9 @@ router
   .delete(deleteThought);
 
 router
-  .route("/") //folder set up?
+  .route("/:id/reactions") //folder set up?
   .post(addReaction);
 
-router.route("/").delete(removeReaction);
+router.route("/:thoughtId/:reactionId").delete(removeReaction);
 
 module.exports = router;
