@@ -1,13 +1,15 @@
 const express = require("express");
 const mongoose = require("mongoose");
+
 const app = express();
 const PORT = process.env.PORT || 3001;
-const routes = require("./routes");
+
+app.use = require("./routes");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/social-media-api",
+  process.env.MONGODB_URI || "mongodb://localhost/Social-Network-API",
   {
     useFindAndModify: false,
     useNewUrlParser: true,
