@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/JYL-LU/Social-Network-API#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "mongoose": "^6.0.4",
     "validator": "^13.6.0"
   }

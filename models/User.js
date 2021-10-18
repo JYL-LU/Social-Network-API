@@ -1,5 +1,5 @@
 const { Schema, models } = require("mongoose");
-const { isEmail } = require("validator");
+const dateFormat = require("../utils/dateFormat");
 
 const userSchema = new Schema({
   username: {
@@ -13,12 +13,6 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    validate: {
-      validator: function (value) {
-        return isEmail(value);
-      },
-      message: (props) => `${props.value} is not a valid email address`,
-    },
     match: [
       /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
       "Please enter a valid email address",
@@ -41,6 +35,7 @@ const userSchema = new Schema({
 
   toJSON: {
     virtuals: true,
+    getters: true,
   },
   id: false,
 });
